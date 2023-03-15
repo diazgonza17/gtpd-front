@@ -1,0 +1,26 @@
+{
+	"profile":{
+        "name": "Gonzalo Diaz",
+        "banner": "../assets/imgs/banner.jpg",
+        "selfie": "../assets/imgs/gonzalo.jpg",
+        "position": "Estudiante - Ingeniería en Sistemas - UTN",
+        "location": "Buenos Aires (Argentina)"
+    },
+	"about": "Actualmente estoy estudiando Ingeniería en Sistemas en la UTN y tengo un First Certificate (FCE) en Inglés con nivel C1. Disfruto de aprender nuevas tecnologías con el fin de poder aplicarlas a mis propios proyectos.",
+	"education": [{
+		"school": "Universidad Tecnologica Nacional",
+		"img": "../assets/imgs/utn.jpg",
+		"title": "Ingeniero en Sistemas de Información",
+		"start": "2022",
+		"end": "2027"
+	}],
+	"skills": [{
+		"name": "game design",
+		"score": "70"
+	}],
+	"projects": [{
+		"name": "stopnt",
+		"href": "#",
+		"description": "Desarrollé un juego de aventuras y plataformas en 3d Lorem"
+	}]
+}

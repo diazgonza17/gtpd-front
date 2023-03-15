@@ -1,0 +1,11 @@
+<div class="container border p-3 my-3">
+    <h2>Skills</h2>
+    <ul>
+        <li *ngFor="let skill of skillsList">
+            <h3>{{skill.name}}</h3>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width: 70%"></div>
+            </div>
+        </li>
+    </ul>
+</div>

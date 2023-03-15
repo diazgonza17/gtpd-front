@@ -1,0 +1,11 @@
+<div class="container border p-3 my-3">
+    <h2>Educacion</h2>
+    <ul>
+        <li *ngFor="let education of educationList">
+            <img [src]="education.img" alt="">
+            <h3>{{education.school}}</h3>
+            <span>{{education.title}}</span><br>
+            <span>{{education.start}}-{{education.end}}</span>
+        </li>
+    </ul>
+</div>
