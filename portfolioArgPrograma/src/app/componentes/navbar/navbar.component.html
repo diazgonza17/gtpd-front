@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="container-fluid">
+        <span class="navbar-brand">{{profileData.name}}</span>
+        <ul class="navbar-nav">
+            <li *ngFor="let social of socialList">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 16 16">
+                    <path [attr.d]="social.path"></path>
+                </svg>
+                <a class="nav-link" [href]="social.href">{{social.name}}</a>
+            </li>
+
+            <li>
+                <button type="button" class="btn btn-outline-success">Login</button>
+            </li>
+        </ul>
+    </div>
+  </nav>

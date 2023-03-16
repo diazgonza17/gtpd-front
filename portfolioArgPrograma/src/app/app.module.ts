@@ -9,6 +9,8 @@ import { SchoolComponent } from './componentes/school/school.component';
 import { SkillsComponent } from './componentes/skills/skills.component';
 import { ProjectsComponent } from './componentes/projects/projects.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './componentes/navbar/navbar.component';
+import { FooterComponent } from './componentes/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     SchoolComponent,
     SkillsComponent,
     ProjectsComponent,
+    NavbarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
