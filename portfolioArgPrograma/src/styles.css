@@ -1,5 +1,21 @@
-p {
-    margin-bottom: 10px;
+body {
+    font-size: 14px !important;
+}
+
+h2 {
+    display: inline-block;
+    margin-bottom: 0 !important;
+}
+
+h3 {
+    display: inline-block;
+    font-size: 16px !important;
+    margin-bottom: 0 !important;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0 !important;
 }
 
 .container {
@@ -7,8 +23,20 @@ p {
     background-color: white;
 }
 
+.h2-div {
+    margin: 3px 0 9px 0;
+}
+
+.h3-div {
+    width: 100%;
+}
+
 .grey-text {
     color: rgb(76, 76, 76);
+}
+
+.icons-pc {
+    display: none;
 }
 
 #img-banner {
@@ -20,7 +48,7 @@ p {
 
 #img-self {
     border-radius: 50%;
-    width: 30%;
+    width: 25%;
     max-width: 125px;
     margin-top: -10vh;
 }
@@ -33,11 +61,51 @@ p {
     padding: 16px;
 }
 
+.edit-icon {
+    float: right;
+    margin-top: 6px;
+}
+
+.add-icon {
+    float: right;
+    margin-top: 2px;
+    width: 24px;
+    height: 24px;
+}
+
+.delete-icon {
+    margin-right: 12px;
+}
+
 @media only screen and (min-width: 576px) {
+    body {
+        font-size: 16px;
+    }
+
+    .h2-div {
+        margin: 3px 0 8px 0;
+    }
+
+    .edit-icon {
+        width: 18px;
+        height: 18px;
+        margin-right: 4px
+    }
+
+    .icons-pc {
+        display: block;
+    }
+
+    .icons-mobile {
+        display: none;
+    }
+
     #img-banner  {
         height: 30vh;
     }
+
     #img-self {
         margin-top: -12vh;
+        margin-bottom: 1vh;
     }
 }

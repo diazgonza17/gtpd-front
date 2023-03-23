@@ -3,14 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './componentes/header/header.component';
-import { AboutComponent } from './componentes/about/about.component';
-import { SchoolComponent } from './componentes/school/school.component';
-import { SkillsComponent } from './componentes/skills/skills.component';
-import { ProjectsComponent } from './componentes/projects/projects.component';
+import { HeaderComponent } from './components/header/header.component';
+import { AboutComponent } from './components/about/about.component';
+import { SchoolComponent } from './components/school/school.component';
+import { SkillsComponent } from './components/skills/skills.component';
+import { ProjectsComponent } from './components/projects/projects.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NavbarComponent } from './componentes/navbar/navbar.component';
-import { FooterComponent } from './componentes/footer/footer.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [

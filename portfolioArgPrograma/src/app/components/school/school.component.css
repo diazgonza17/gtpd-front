@@ -1,0 +1,10 @@
+.school-img {
+    width: 60px;
+    margin-right: 10px;
+    object-fit: contain;
+}
+
+.edit-delete-icons {
+    float: right;
+    margin-right: 6px;
+}

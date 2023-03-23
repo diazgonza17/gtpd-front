@@ -13,7 +13,7 @@ export class FooterComponent {
 
   ngOnInit(): void {
     this.datosPortfolio.obtenerDatos().subscribe(data =>{
-      this.contactData=data.contact;
+      this.contactData = data.contact;
     });
   }
 }
