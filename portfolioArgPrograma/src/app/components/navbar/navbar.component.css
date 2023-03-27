@@ -7,12 +7,14 @@
 
 .social-icon {
     margin-bottom: 2px;
+    position: relative;
+    top: 1px;
 }
 
 .login {
     padding-top: 4px;
     padding-bottom: 4px;
-    margin-top: 4px;
+    margin-top: 5px;
     margin-left: 6px;
 }
 

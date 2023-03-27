@@ -24,7 +24,7 @@ ul {
 }
 
 .h2-div {
-    margin: 3px 0 9px 0;
+    margin: 3px 0 12px 0;
 }
 
 .h3-div {
@@ -69,12 +69,17 @@ ul {
 .add-icon {
     float: right;
     margin-top: 2px;
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
 }
 
 .delete-icon {
     margin-right: 12px;
+}
+
+.edit-delete-icons {
+    float: right;
+    margin-right: 6px;
 }
 
 @media only screen and (min-width: 576px) {
@@ -87,8 +92,6 @@ ul {
     }
 
     .edit-icon {
-        width: 18px;
-        height: 18px;
         margin-right: 4px
     }
 

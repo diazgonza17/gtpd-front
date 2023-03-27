@@ -13,15 +13,31 @@
 		"title": "Ingeniero en Sistemas de Información",
 		"start": "2022",
 		"end": "2027"
+	},
+	{
+		"school":"freeCodeCamp",
+		"img":"../assets/imgs/freecodecamp.jpg",
+		"title":"Responsive Web Design",
+		"start":"2020",
+		"end":"2021"
 	}],
 	"skills": [{
-		"name": "game design",
-		"score": "10"
+		"name": "Game Design",
+		"score": "40"
+	},
+	{
+		"name":"Web Design",
+		"score":"60"
 	}],
 	"projects": [{
-		"name": "stopnt",
+		"name": "Stopnt",
 		"href": "#",
-		"description": "Desarrollé un juego de aventuras y plataformas en 3d Lorem"
+		"description": "Videojuego de plataformas 3D"
+	},
+	{
+		"name":"Counter Data",
+		"href": "#",
+		"description":"Discord Bot: Contador de mensajes"
 	}],
 	"socials": [{
 		"name":"Linkedin",

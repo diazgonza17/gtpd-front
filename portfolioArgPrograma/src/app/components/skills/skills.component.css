@@ -1,0 +1,19 @@
+.skill-item:first-child {
+    margin-top: 0;
+}
+
+.skill-item {
+    margin-top: 20px;
+}
+
+.edit-icon {
+    margin-top: 0;
+}
+
+.delete-icon {
+    float: right;
+}
+
+.progress {
+    margin-top: 5px;
+}

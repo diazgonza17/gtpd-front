@@ -1,0 +1,10 @@
+.h2-div {
+    margin-bottom: 3px;
+    margin-top: -2px;
+}
+
+@media only screen and (min-width: 576px) {
+    .h2-div {
+        margin-bottom: 6px;
+    }
+}
