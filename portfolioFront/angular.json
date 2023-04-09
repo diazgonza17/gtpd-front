@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "portfolioArgPrograma": {
+    "portfolioFront": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -63,10 +63,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "portfolioArgPrograma:build:production"
+              "browserTarget": "portfolioFront:build:production"
             },
             "development": {
-              "browserTarget": "portfolioArgPrograma:build:development"
+              "browserTarget": "portfolioFront:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -74,7 +74,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "portfolioArgPrograma:build"
+            "browserTarget": "portfolioFront:build"
           }
         },
         "test": {
