@@ -11,6 +11,8 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { LoginComponent } from './components/login/login.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +24,13 @@ import { FooterComponent } from './components/footer/footer.component';
     ProjectsComponent,
     NavbarComponent,
     FooterComponent,
+    LoginComponent,
+    PortfolioComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
