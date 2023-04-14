@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import { persona } from 'src/app/model/persona.model';
+import { PortfolioService } from 'src/app/services/portfolio.service';
 
 @Component({
   selector: 'app-about',
@@ -7,12 +8,24 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent {
+
+  //persona: persona = new persona("", "");
+
   aboutText:any;
-  constructor(private datosPortfolio:PortfolioService) {
+  
+  constructor(private portfolioService:PortfolioService) {
   }
 
+  
   ngOnInit(): void {
-    this.datosPortfolio.obtenerDatos().subscribe(data =>{
+
+  /*  
+    this.portfolioService.getPersona().subscribe(data =>{
+      this.persona = data;
+    })
+  */
+
+    this.portfolioService.obtenerDatos().subscribe(data =>{
       this.aboutText=data.about;
     });
   }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import { PortfolioService } from 'src/app/services/portfolio.service';
 
 @Component({
   selector: 'app-projects',
