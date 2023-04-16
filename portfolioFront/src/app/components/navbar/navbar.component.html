@@ -1,18 +1,19 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark">
     <div class="container-fluid">
-        <span class="navbar-brand" routerLink="/">{{profileData.name}}</span>
+        <span class="navbar-brand" routerLink="/">Logo Argentina Programa</span>
         <ul class="navbar-nav">
-            <li *ngFor="let social of socialList">
-                <a class="nav-link" [href]="social.href">
+            <li> <!-- *ngFor="let social of socialList"> -->
+                <a class="nav-link"><!--[href]="social.href">-->   
                     <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="white" viewBox="0 0 16 16">
-                        <path [attr.d]="social.path"></path>
+                        <path><!--[attr.d]="social.path">--></path>
                     </svg>
-                    <span class="nav-link-text">{{social.name}}</span>
+                    <span class="nav-link-text"><!--{{social.name}}--> </span>
                 </a>
             </li>
 
             <li>
-                <button type="button" class="btn btn-outline-success btn-sm login" routerLink="/login">Login</button>
+                <button type="button" class="btn btn-outline-success btn-sm login" (click)="onLogin()" *ngIf="!isLogged">Login</button>
+                <button type="button" class="btn btn-outline-success btn-sm login" (click)="onLogout()" *ngIf="isLogged">Logout</button>
             </li>
         </ul>
     </div>

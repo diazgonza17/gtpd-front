@@ -1,15 +1,19 @@
 <div class="container p-5 mt-5 mb-5">
     <h1 class="">Iniciar Sesión</h1>
-    <form class="">
+    <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <label for="nombreUsuario" class="form-label">Usuario</label>
+        <input type="email" id="nombreUsuario" name="nombreUsuario" class="form-control" [(ngModel)]="nombreUsuario" required aria-describedby="emailHelp">
       </div>
       <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
+        <label for="password" class="form-label">Contraseña</label>
+        <input type="password" id="password" name="password" [(ngModel)]="password" required class="form-control">
       </div>
       <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
+
+    <div>
+      <p class="mb-0">¿No tienes una cuenta? <a href="#!" class="text-white-50 fw-bold">Sign Up</a></p>
+    </div>
 </div>
 
