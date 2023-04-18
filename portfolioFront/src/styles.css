@@ -62,20 +62,23 @@ ul {
     padding: 16px;
 }
 
+.add-btn{
+    float: right;
+    padding-top: 3px;
+}
+
+.add-icon {
+    width: 26px;
+    height: 26px;
+}
+
 .edit-icon {
     float: right;
     margin-top: 6px;
 }
 
-.add-icon {
-    float: right;
-    margin-top: 2px;
-    width: 26px;
-    height: 26px;
-}
-
-.delete-icon {
-    margin-right: 12px;
+.delete-btn {
+    padding:0 !important;
 }
 
 .edit-delete-icons {
