@@ -17,9 +17,11 @@ export class HeaderComponent {
   }
 
   ngOnInit(): void {
+    /*
     this.portfolioService.getPersona().subscribe(data =>{
       this.persona = data;
     })
+    */
 
     this.portfolioService.obtenerDatos().subscribe(data =>{
       this.profileData=data.profile;

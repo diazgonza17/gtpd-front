@@ -8,12 +8,15 @@ import { persona } from '../models/persona.model';
 })
 
 export class PortfolioService {
+  
+  idGonza = 1;
   URL = 'http://localhost:8080/persona/';
+
 
   constructor(private http:HttpClient) { }
 
   public getPersona(): Observable<persona>{
-    return this.http.get<persona>(this.URL+'perfil')
+    return this.http.get<persona>(this.URL+`detail/${this.idGonza}`)
   }
 
   obtenerDatos():Observable<any>{

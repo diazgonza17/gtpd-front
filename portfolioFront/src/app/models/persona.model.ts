@@ -1,9 +1,9 @@
 export class persona{
     id?: number;
-    nombre: String;
-    apellido: String;
+    nombre: string;
+    apellido: string;
 
-    constructor(nombre: String, apellido: String){
+    constructor(nombre: string, apellido: string){
         this.nombre = nombre;
         this.apellido = apellido;
     }

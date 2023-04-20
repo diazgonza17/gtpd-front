@@ -11,12 +11,12 @@ export class SExperienciaService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public lista(): Observable<Experiencia[]> {
-    return this.httpClient.get<Experiencia[]>(this.expURL+'lista');
+  public all(): Observable<Experiencia[]> {
+    return this.httpClient.get<Experiencia[]>(this.expURL+'all');
   }
 
-  public details(id: number): Observable<Experiencia> {
-    return this.httpClient.get<Experiencia>(this.expURL+`detail/${id}`)
+  public detail(id: number): Observable<Experiencia> {
+    return this.httpClient.get<Experiencia>(this.expURL+`detail/${id}`);
   }
 
   public save(experiencia: Experiencia): Observable<any> {

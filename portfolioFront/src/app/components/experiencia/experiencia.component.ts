@@ -17,7 +17,7 @@ export class ExperienciaComponent {
 
   ngOnInit(): void {
     this.cargarExperiencia();
-    if(this.tokenService.getToken()) {
+    if (this.tokenService.getToken()) {
       this.isLogged = true;
     } else {
       this.isLogged = false;
@@ -25,15 +25,15 @@ export class ExperienciaComponent {
   }
 
   cargarExperiencia(): void {
-    this.sExperiencia.lista().subscribe(data => {this.exp = data});
+    this.sExperiencia.all().subscribe(data => { this.exp = data });
   }
 
   delete(id?: number): void {
-    if(id != undefined){
-      this.sExperiencia.delete(id).subscribe(data =>{
+    if (id != undefined) {
+      this.sExperiencia.delete(id).subscribe(data => {
         this.cargarExperiencia();
-      }, err=> {
-        alert("No se pudo borrar la experiencia");
+      }, err => {
+        alert("No se pudo eliminar la experiencia");
       })
     }
   }

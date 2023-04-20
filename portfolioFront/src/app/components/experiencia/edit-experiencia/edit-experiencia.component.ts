@@ -15,7 +15,7 @@ export class EditExperienciaComponent {
 
   ngOnInit(): void {
     const id = this.activatedRouter.snapshot.params['id'];
-    this.sExperiencia.details(id).subscribe(data =>{
+    this.sExperiencia.detail(id).subscribe(data =>{
       this.exp = data;
     }, err=>{
       alert("Error al modificar experiencia");
