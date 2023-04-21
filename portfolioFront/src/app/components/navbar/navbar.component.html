@@ -3,18 +3,53 @@
         <span class="navbar-brand" routerLink="/">Logo Argentina Programa</span>
         <ul class="navbar-nav">
             <li> <!-- *ngFor="let social of socialList"> -->
-                <a class="nav-link"><!--[href]="social.href">-->   
-                    <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="white" viewBox="0 0 16 16">
+                <a class="nav-link"><!--[href]="social.href">-->
+                    <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="white"
+                        viewBox="0 0 16 16">
                         <path><!--[attr.d]="social.path">--></path>
                     </svg>
                     <span class="nav-link-text"><!--{{social.name}}--> </span>
                 </a>
             </li>
-
             <li>
-                <button type="button" class="btn btn-outline-success btn-sm login" (click)="onLogin()" *ngIf="!isLogged">Login</button>
+                <!-- <button type="button" class="btn btn-outline-success btn-sm login" (click)="onLogin()" *ngIf="!isLogged">Login</button>
+                <button type="button" class="btn btn-outline-success btn-sm login" (click)="onLogout()" *ngIf="isLogged">Logout</button> -->
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-success btn-sm login" data-toggle="modal" data-target="#loginModal" *ngIf="!isLogged">Login</button>
                 <button type="button" class="btn btn-outline-success btn-sm login" (click)="onLogout()" *ngIf="isLogged">Logout</button>
+                <!-- Modal -->
+                <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modal-title">LOGIN</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+                                    <div class="mb-3">
+                                        <label for="nombreUsuario" class="form-label">Usuario</label>
+                                        <input type="email" id="nombreUsuario" name="nombreUsuario" class="form-control" [(ngModel)]="nombreUsuario" required aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">Contraseña</label>
+                                        <input type="password" id="password" name="password" [(ngModel)]="password" required class="form-control">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Enviar</button>
+                                  </form>
+                                  <div>
+                                    <p class="mb-0">¿No tienes una cuenta? <a href="#!" class="text-white-50 fw-bold">Sign Up</a></p>
+                                  </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </li>
+
         </ul>
     </div>
-  </nav>
+</nav>

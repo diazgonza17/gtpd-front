@@ -5,11 +5,11 @@ import { TokenService } from 'src/app/services/token.service';
 //import { PortfolioService } from 'src/app/services/portfolio.service';
 
 @Component({
-  selector: 'app-school',
-  templateUrl: './school.component.html',
-  styleUrls: ['./school.component.css']
+  selector: 'app-educacion',
+  templateUrl: './educacion.component.html',
+  styleUrls: ['./educacion.component.css']
 })
-export class SchoolComponent {
+export class EducacionComponent {
   /*
   educationList:any;
   constructor(private datosPortfolio:PortfolioService) {

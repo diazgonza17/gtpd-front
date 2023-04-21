@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AboutComponent } from './components/about/about.component';
-import { SchoolComponent } from './components/school/school.component';
+import { EducacionComponent } from './components/educacion/educacion.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,6 +18,8 @@ import { interceptorProvider } from './services/interceptor-service';
 import { ExperienciaComponent } from './components/experiencia/experiencia.component';
 import { NewExperienciaComponent } from './components/experiencia/new-experiencia/new-experiencia.component';
 import { EditExperienciaComponent } from './components/experiencia/edit-experiencia/edit-experiencia.component';
+import { NewEducacionComponent } from './components/educacion/new-educacion/new-educacion.component';
+import { EditEducacionComponent } from './components/educacion/edit-educacion/edit-educacion.component';
 
 
 @NgModule({
@@ -25,7 +27,7 @@ import { EditExperienciaComponent } from './components/experiencia/edit-experien
     AppComponent,
     HeaderComponent,
     AboutComponent,
-    SchoolComponent,
+    EducacionComponent,
     SkillsComponent,
     ProjectsComponent,
     NavbarComponent,
@@ -35,6 +37,8 @@ import { EditExperienciaComponent } from './components/experiencia/edit-experien
     ExperienciaComponent,
     NewExperienciaComponent,
     EditExperienciaComponent,
+    NewEducacionComponent,
+    EditEducacionComponent,
   ],
   imports: [
     BrowserModule,
