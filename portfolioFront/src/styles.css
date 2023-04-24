@@ -68,13 +68,13 @@ ul {
 }
 
 .add-icon {
-    width: 26px;
-    height: 26px;
+    font-size:26px;
 }
 
 .edit-icon {
     float: right;
     margin-top: 6px;
+    font-size: 16px;
 }
 
 .delete-btn {
