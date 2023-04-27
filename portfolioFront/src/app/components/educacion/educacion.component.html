@@ -1,35 +1,124 @@
 <div class="container border p-3 my-3">
     <div class="h2-div">
         <h2>Educacion</h2>
-        <button type="button" routerLink="/nuevaEdu" *ngIf="isLogged" class="btn add-btn">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn add-btn" data-toggle="modal" data-target="#newEduModal" *ngIf="isLogged">
             <i class="bi bi-plus add-icon"></i>
         </button>
+        <!-- Modal -->
+        <div class="modal fade" id="newEduModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Agregar Educacion</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="newEduForm" #f="ngForm" (ngSubmit)="onCreate()" novalidate>
+                            <div class="mb-3">
+                                <label for="nombreEdu" class="form-label">Nombre</label>
+                                <input type="text" id="nombreEdu" name="nombreEdu" class="form-control" [(ngModel)]="nombreEdu" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="descripcionEdu" class="form-label">Descripcion</label>
+                                <input type="text" id="descripcionEdu" name="descripcionEdu" class="form-control" [(ngModel)]="descripcionEdu" required >
+                            </div>
+                            <div class="form-group">
+                                <label for="inicioEdu">Año de Inicio</label>
+                                <select class="form-control" id="inicioEdu" name="inicioEdu" [(ngModel)]="inicioEdu" required>
+                                    <option *ngFor="let year of yearList" [value]="year">{{year}}</option>
+                                </select>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="newEduActual" (change)="onNewActualChange($event)">
+                                <label class="form-check-label" for="newEduActual">Actualmente estoy estudiando en esta institución</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="finEdu">Año de Finalización</label>
+                                <select class="form-control" id="finEdu" name="finEdu" [(ngModel)]="finEdu" [disabled]="isNewEduActual">
+                                    <option value=""></option>
+                                    <ng-container *ngIf="!isNewEduActual">    
+                                        <option *ngFor="let year of yearList" [value]="year">{{year}}</option>
+                                    </ng-container>
+                                    <ng-container *ngIf="isNewEduActual">
+                                        <option value="" selected></option>
+                                    </ng-container>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary my-2 py-2 submit-btn">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <ul>
-        <li *ngFor="let Educacion of edu" style="display:flex" class="educacion-item">
-            <!--<img [src]="education.img" alt="" class="educacion-img">-->
+        <li *ngFor="let Educacion of edu">
+            <!--<img>-->
             <div class="h3-div">
                 <div class="edit-delete-icons icons-pc">
-                    <button class="btn delete-btn" (click)="delete(Educacion.id)" *ngIf="isLogged">
+                    <button type="button" class="btn delete-btn" *ngIf="isLogged" (click)="delete(Educacion.id)">
                         <i class="bi bi-trash3-fill delete-icon"></i>
                     </button>
-                    <button class="btn edit-btn" routerLink="/editEdu/{{Educacion.id}}" *ngIf="isLogged">
+                    <button type="button" class="btn edit-btn" *ngIf="isLogged" (click)="onEdit($event)">
                         <i class="bi bi-pencil-fill edit-icon"></i>
                     </button>
                 </div>
-                <h3>{{Educacion.nombreEdu}}</h3>
-                <br>
-                <span>{{Educacion.descripcionEdu}}</span><br>
-                <!--<span>{{education.start}}-{{education.end}}</span>-->
+                <div class="content">
+                    <h3 class="nombreEdu">{{Educacion.nombreEdu}}</h3>
+                    <br>
+                    <span class="descripcionEdu">{{Educacion.descripcionEdu}} </span>
+                    <span class="fechasEdu grey-text">{{Educacion.inicioEdu}} - 
+                        <span *ngIf="Educacion.finEdu != 0">{{Educacion.finEdu}}</span>
+                        <span *ngIf="Educacion.finEdu == 0">Actualidad</span>
+                    </span>                    
+                </div>
+                <div class="edit-content" style="display:none">
+                    <form #f="ngForm" (ngSubmit)="onUpdate(Educacion.id)" novalidate>
+                        <div class="form-group">
+                            <label for="nombreEdu">Nombre</label>
+                            <input type="text" class="form-control" id="nombreEdu" name="nombreEdu" [(ngModel)]="Educacion.nombreEdu" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcionEdu">Descripcion</label>
+                            <input type="text" class="form-control" id="descripcionEdu" name="descripcionEdu" [(ngModel)]="Educacion.descripcionEdu" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inicioEdu">Año de Inicio</label>
+                            <select class="form-control" id="inicioEdu" name="inicioEdu" [(ngModel)]="Educacion.inicioEdu" required>
+                                <option *ngFor="let year of yearList" [value]="year">{{year}}</option>
+                            </select>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="eduActual" (change)="onActualChange($event)">
+                            <label class="form-check-label" for="eduActual">Actualmente estoy estudiando en esta institución</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="finEdu">Año de Finalización</label>
+                            <select class="form-control" id="finEdu" name="finEdu" [(ngModel)]="Educacion.finEdu" [disabled]="isEduActual">
+                                <option value=""></option>
+                                <ng-container *ngIf="!isEduActual">
+                                    <option *ngFor="let year of yearList" [value]="year">{{year}}</option>
+                                </ng-container>
+                                <ng-container *ngIf="isEduActual">
+                                    <option value="" selected></option>
+                                </ng-container>
+                            </select>
+                        </div>
+                        <button class="btn btn-success">Editar</button>
+                    </form>
+                    <button class="btn btn-secondary" (click)="onCloseEdit($event)">Cerrar</button>
+                </div>
                 <div class="edit-delete-icons icons-mobile">
-                    <button class="btn btn-danger" (click)="delete(Educacion.id)" *ngIf="isLogged"-->Borrar
+                    <button type="button" class="btn delete-btn" *ngIf="isLogged" (click)="delete(Educacion.id)">
                         <i class="bi bi-trash3-fill delete-icon"></i>
                     </button>
-                    <button class="btn btn-primary" routerLink="/editEdu/{{Educacion.id}}" *ngIf="isLogged"-->Borrar
+                    <button type="button" class="btn" *ngIf="isLogged" (click)="onEdit($event)">
                         <i class="bi bi-pencil-fill edit-icon"></i>
                     </button>
                 </div>
             </div>
+            <br>
         </li>
     </ul>
 </div>

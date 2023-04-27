@@ -15,8 +15,6 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { FormsModule } from '@angular/forms';
 import { interceptorProvider } from './services/interceptor-service';
 import { ExperienciaComponent } from './components/experiencia/experiencia.component';
-import { NewEducacionComponent } from './components/educacion/new-educacion/new-educacion.component';
-import { EditEducacionComponent } from './components/educacion/edit-educacion/edit-educacion.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +28,6 @@ import { EditEducacionComponent } from './components/educacion/edit-educacion/ed
     FooterComponent,
     PortfolioComponent,
     ExperienciaComponent,
-    NewEducacionComponent,
-    EditEducacionComponent,
   ],
   imports: [
     BrowserModule,

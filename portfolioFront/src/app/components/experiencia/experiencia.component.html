@@ -30,17 +30,17 @@
                                 </select>
                             </div>
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="newActual" (change)="onNewActualChange($event)">
-                                <label class="form-check-label" for="newActual">Actualmente estoy trabajando en este puesto</label>
+                                <input type="checkbox" class="form-check-input" id="newExpActual" (change)="onNewActualChange($event)">
+                                <label class="form-check-label" for="newExpActual">Actualmente estoy trabajando en este puesto</label>
                             </div>
                             <div class="form-group">
                                 <label for="finExp">Año de Fin</label>
-                                <select class="form-control" id="finExp" name="finExp" [(ngModel)]="finExp" [disabled]="isNewActual">
+                                <select class="form-control" id="finExp" name="finExp" [(ngModel)]="finExp" [disabled]="isNewExpActual">
                                     <option value=""></option>
-                                    <ng-container *ngIf="!isNewActual">    
+                                    <ng-container *ngIf="!isNewExpActual">    
                                         <option *ngFor="let year of yearList" [value]="year">{{year}}</option>
                                     </ng-container>
-                                    <ng-container *ngIf="isNewActual">
+                                    <ng-container *ngIf="isNewExpActual">
                                         <option value="" selected></option>
                                     </ng-container>
                                 </select>
@@ -68,12 +68,12 @@
                     <h3 class="nombreExp">{{Experiencia.nombreExp}}</h3>
                     <br>
                     <span class="descripcionExp">{{Experiencia.descripcionExp}} </span>
-                    <span class="grey-text">{{Experiencia.inicioExp}} -
+                    <span class="fechasExp grey-text">{{Experiencia.inicioExp}} -
                         <span *ngIf="Experiencia.finExp != 0">{{Experiencia.finExp}}</span>
                         <span *ngIf="Experiencia.finExp == 0">Actualidad</span>
                     </span>
                 </div>
-                <div class="edit-content" style="display:none" >
+                <div class="edit-content" style="display:none">
                     <form #f="ngForm" (ngSubmit)="onUpdate(Experiencia.id)" novalidate>
                         <div class="form-group">
                             <label for="nombreExp">Nombre</label>
@@ -90,31 +90,21 @@
                             </select>
                         </div>
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="actual" (change)="onActualChange($event)">
-                            <label class="form-check-label" for="actual">Actualmente estoy trabajando en este puesto</label>
+                            <input type="checkbox" class="form-check-input" id="expActual" (change)="onActualChange($event)">
+                            <label class="form-check-label" for="expActual">Actualmente estoy trabajando en este puesto</label>
                         </div>
                         <div class="form-group">
-                            <label for="finExp">Año de Fin</label>
-                            <select class="form-control" id="finExp" name="finExp" [(ngModel)]="Experiencia.finExp" [disabled]="isActual">
+                            <label for="finExp">Año de Finalización</label>
+                            <select class="form-control" id="finExp" name="finExp" [(ngModel)]="Experiencia.finExp" [disabled]="isExpActual">
                                 <option value=""></option>
-                                <ng-container *ngIf="!isActual">    
+                                <ng-container *ngIf="!isExpActual">    
                                     <option *ngFor="let year of yearList" [value]="year">{{year}}</option>
                                 </ng-container>
-                                <ng-container *ngIf="isActual">
+                                <ng-container *ngIf="isExpActual">
                                     <option value="" selected></option>
                                 </ng-container>
                             </select>
                         </div>
-                        <!-- 
-                        <div class="form-group">
-                            <label for="inicioExp">Año de Inicio</label>
-                            <input type="number" min="1900" max="2099" step="1" class="form-control" id="inicioExp" name="inicioExp" [(ngModel)]="Experiencia.inicioExp" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="finExp">Año de Fin</label>
-                            <input type="number" min="1900" max="2099" step="1" class="form-control" id="finExp" name="finExp" [(ngModel)]="Experiencia.finExp">
-                        </div>
-                        -->
                         <button class="btn btn-success">Editar</button>
                     </form>
                     <button class="btn btn-secondary" (click)="onCloseEdit($event)">Cerrar</button>               

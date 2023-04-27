@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Experiencia } from 'src/app/models/experiencia';
-import { SExperienciaService } from 'src/app/services/experiencia.service';
+import { ExperienciaService } from 'src/app/services/experiencia.service';
 import { TokenService } from 'src/app/services/token.service'
 
 @Component({
@@ -9,9 +9,11 @@ import { TokenService } from 'src/app/services/token.service'
   styleUrls: ['./experiencia.component.css']
 })
 export class ExperienciaComponent {
-
-  constructor(private sExperiencia: SExperienciaService, private tokenService: TokenService) { }
   
+  constructor(private sExperiencia: ExperienciaService, private tokenService: TokenService) { }
+  
+  exp: Experiencia[] = [];
+
   cargarExperiencia(): void {
     this.sExperiencia.all().subscribe(data => { this.exp = data });
   }
@@ -22,9 +24,7 @@ export class ExperienciaComponent {
   ngOnInit(): void {
     const currentYear = new Date().getFullYear();
     const minYear = currentYear - 100;
-    for(let i = minYear; i <= currentYear; i++) {
-      this.yearList.push(i);
-    }
+    for(let i = minYear; i <= currentYear; i++) this.yearList.push(i);
 
     this.cargarExperiencia();
     if (this.tokenService.getToken()) {
@@ -34,31 +34,29 @@ export class ExperienciaComponent {
     }
   }
 
-  isNewActual: boolean = false;
-  isActual: boolean = false;
-                                              getBools(){console.log(this.isNewActual + " " + this.isActual)}
+  isNewExpActual: boolean = false;
+  isExpActual: boolean = false;
+
   onNewActualChange(event: any) {
-    this.isNewActual = event.target.checked;
+    this.isNewExpActual = event.target.checked;
   }
   onActualChange(event: any) {
-    this.isActual = event.target.checked;
+    this.isExpActual = event.target.checked;
   }
 
-  exp: Experiencia[] = [];
   nombreExp: string = '';
   descripcionExp: string = '';
   inicioExp: number = 0;
   finExp: number = 0;
   
   onCreate(): void {
-    if(this.isNewActual) this.finExp = 0;
+    if(this.isNewExpActual) this.finExp = 0;
     const newexp = new Experiencia(this.nombreExp, this.descripcionExp, this.inicioExp, this.finExp);
     this.sExperiencia.save(newexp).subscribe(data => {
       alert("Experiencia añadida");
-      console.log(newexp);
       window.location.reload();
     }, err => {
-      alert('Fallo');
+      alert('Fallo al enviar experiencia');
       window.location.reload();
     })
   }
@@ -73,7 +71,7 @@ export class ExperienciaComponent {
     }
   }
 
-  isEditing = false;
+  isEditing: boolean = false;
   
   onEdit(event: MouseEvent): void {
     const button = event.target as HTMLButtonElement;
@@ -108,13 +106,14 @@ export class ExperienciaComponent {
       
       content.querySelector(".nombreExp").textContent = 'Please wait...';
       content.querySelector(".descripcionExp").textContent = 'If this doesn\'t change, reload the site';
+      content.querySelector(".fechasExp").textContent = '';
       window.location.reload();
     }
   }
 
   onUpdate(id?: number): void {
     let updExp = this.exp.find(obj => obj.id == id);
-    if(this.isActual) updExp.finExp = 0;
+    if(this.isExpActual) updExp.finExp = 0;
     this.sExperiencia.update(id, updExp).subscribe(data => {
       alert("Experiencia modificada");
       window.location.reload();
