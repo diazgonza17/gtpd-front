@@ -1,28 +1,32 @@
 Portfolio to do:
+
     Navbar
-        - Red Fields:     Link / Class
-        - Red Back        (Entity / Repository / Service / DTO / Controller)
-        - Red Front       (Service / TS)
-            Elegir icono de red segun un dropdown con opciones
-    Header
-        - Persona Fields: Nombre / Apellido / Titulo / Ubicacion / **IMGS**
-        - Persona Back    (Polish)
-        - Persona Service (Polish)
+        - Red Front:       (Model / Service / TS)                                          Elegir icono de red segun un dropdown con opciones
+
+    Persona
+        - Add IMGS to Back
+        - Persona Front:  Model / Service (Polish)
+
     About
-        - About Fields:   Text
-        - About Back:     (Entity / Repository / Service / DTO / Controller)
-        - About Front:    (Service / TS)
+        - About Front:    (Model / Service / TS)
+    
     Experiencia
         - Add IMGS to Back
-        - Update Front:   if end date 0, its current 
+        - Update Front:   Model / if end date 0, its current 
+
+        - Añadir flechita para que se sepa que es un dropdown
+        - Spinner loader when submit
     Educacion
         - Add IMGS to Back
-        - Change Front:   Replace Routing
+        - Change Front:   Model / Replace Routing
+    
     Skill
-        - Skill Fields:   Nombre / Score
-        - Skill Back:     (Entity / Repository / Service / DTO / Controller)
-        - Skill Front:    (Service / TS)
-    Proyecto    
-        - Proyecto Fields: Nombre / Descripcion / Fecha / Link / **IMGS** 
-        - Proyecto Back:   (Entity / Repository / Service / DTO / Controller)
-        - Proyecto Front:  (Service / TS)
+        - Skill Front:    (Model / Service / TS)
+    
+    Proyecto
+        - Add IMGS to Back    
+        - Proyecto Front:  (Model / Service / TS)
+
+
+ANTES DEL DEPLOY
+    - Borrar usuario "user"

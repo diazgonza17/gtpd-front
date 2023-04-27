@@ -17,8 +17,15 @@ export class ExperienciaComponent {
   }
 
   isLogged = false;
+  yearList: number[] = [];
 
   ngOnInit(): void {
+    const currentYear = new Date().getFullYear();
+    const minYear = currentYear - 100;
+    for(let i = minYear; i <= currentYear; i++) {
+      this.yearList.push(i);
+    }
+
     this.cargarExperiencia();
     if (this.tokenService.getToken()) {
       this.isLogged = true;
@@ -27,12 +34,25 @@ export class ExperienciaComponent {
     }
   }
 
+  isNewActual: boolean = false;
+  isActual: boolean = false;
+                                              getBools(){console.log(this.isNewActual + " " + this.isActual)}
+  onNewActualChange(event: any) {
+    this.isNewActual = event.target.checked;
+  }
+  onActualChange(event: any) {
+    this.isActual = event.target.checked;
+  }
+
   exp: Experiencia[] = [];
   nombreExp: string = '';
   descripcionExp: string = '';
+  inicioExp: number = 0;
+  finExp: number = 0;
   
   onCreate(): void {
-    const newexp = new Experiencia(this.nombreExp, this.descripcionExp);
+    if(this.isNewActual) this.finExp = 0;
+    const newexp = new Experiencia(this.nombreExp, this.descripcionExp, this.inicioExp, this.finExp);
     this.sExperiencia.save(newexp).subscribe(data => {
       alert("Experiencia añadida");
       console.log(newexp);
@@ -93,7 +113,9 @@ export class ExperienciaComponent {
   }
 
   onUpdate(id?: number): void {
-    this.sExperiencia.update(id, this.exp.find(obj => obj.id == id)).subscribe(data => {
+    let updExp = this.exp.find(obj => obj.id == id);
+    if(this.isActual) updExp.finExp = 0;
+    this.sExperiencia.update(id, updExp).subscribe(data => {
       alert("Experiencia modificada");
       window.location.reload();
     }, err => {
