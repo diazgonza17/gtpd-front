@@ -1,21 +1,18 @@
 Portfolio to do:
 
-    Navbar
-        - Red Front:       (Model / Service / TS)                                          Elegir icono de red segun un dropdown con opciones
-
     Persona
         - Add IMGS to Back
         - Persona Front:  Model / Service (Polish)
 
     About
-        - About Front:    (Model / Service / TS)
+        - About Front:    Model / Service / TS
         - use <textarea>
 
 -----------------------------------------------------------------------------
 
     Experiencia
         - Add IMGS to Back
-        -- Añadir flechita para que se sepa que es un dropdown
+        -- Añadir flechita para que se sepa que es un dropdown (bootstrap icon: caret-down-fill)
         -- Spinner loader when submit
         -- si queres editar un elemento con "Actualidad", la checkbox deberia aparecer tildada
 
@@ -28,6 +25,10 @@ Portfolio to do:
 
     Proyecto
         - Add IMGS to Back    
+        - cambiar link por linkPro (Back y Front)
+
+    Navbar
+        - cambiar link por linkRed (Back y Front)
 
 -----------------------------------------------------------------------------
 

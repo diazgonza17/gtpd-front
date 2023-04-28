@@ -24,6 +24,43 @@ ul {
     background-color: white;
 }
 
+.login {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-top: 5px;
+    margin-left: 6px;
+    position: relative;
+    bottom: 2px;
+}
+
+.nav-link-text{
+    display: none;
+    margin-left: 8px;
+    position: relative;
+    bottom: 3px;
+}
+
+.nav-link {
+    display: inline !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    position: relative;
+    bottom: 1px;
+}
+
+.social-icon {
+    margin-bottom: 2px;
+    position: relative;
+    top: 1px;
+    font-size: 24px;
+}
+
+@media only screen and (min-width: 576px) {
+    .nav-link-text{
+        display: inline;
+    }
+} 
+
 .h2-div {
     margin: 3px 0 12px 0;
 }

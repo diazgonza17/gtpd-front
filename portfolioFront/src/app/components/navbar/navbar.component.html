@@ -4,15 +4,86 @@
             <img src="../../../assets/imgs/APLogo.png" height="80" style="margin: -35px 0 -30px 0">
         </div>
         <ul class="navbar-nav">
-            <li> <!-- *ngFor="let social of socialList"> -->
-                <a class="nav-link"><!--[href]="social.href">-->
-                    <!-- USAR ICONS <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="white"
-                        viewBox="0 0 16 16">
-                        <path> [attr.d]="social.path"></path>
-                    </svg> -->
-                    
-                    <span class="nav-link-text"><!--{{social.name}}--> </span>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn add-btn" data-toggle="modal" data-target="#newRedModal" *ngIf="isLogged">
+                <i class="bi bi-plus add-icon text-white"></i>
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="newRedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Agregar Red</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="newRedForm" #f="ngForm" (ngSubmit)="onCreate()" novalidate>
+                                <div class="form-group">
+                                    <label for="clase">Red social</label>
+                                    <select class="form-control" id="clase" name="clase" [(ngModel)]="clase" required>
+                                        <option value="github">Github</option>
+                                        <option value="twitter">Twitter</option>
+                                        <option value="instagram">Instagram</option>
+                                        <option value="facebook">Facebook</option>
+                                        <option value="pinterest">Pinterest</option>
+                                        <option value="globe-americas">Web</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="link" class="form-label">Link</label>
+                                    <input type="text" id="link" name="link" class="form-control" [(ngModel)]="link" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary my-2 py-2 submit-btn">Enviar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <li *ngFor="let Red of red">
+                <a class="nav-link" [href]="Red.link">
+                    <i class="social-icon bi bi-{{Red.clase}}"></i>
+                    <span class="nav-link-text" *ngIf="!isLogged">{{Red.clase}}</span>
                 </a>
+                <div class="edit-delete-icons">
+                    <button type="button" class="btn delete-btn" *ngIf="isLogged" (click)="delete(Red.id)">
+                        <i class="bi bi-trash3-fill delete-icon text-white"></i>
+                    </button>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn edit-btn" data-toggle="modal" data-target="#editRedModal" *ngIf="isLogged">
+                        <i class="bi bi-pencil-fill edit-icon text-white"></i>
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="editRedModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Editar Red</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>            
+                                </div>
+                                <div class="modal-body">
+                                    <form id="editRedForm" #f="ngForm" (ngSubmit)="onUpdate(Red.id)">
+                                        <div class="form-group">
+                                            <label for="clase">Red social</label>
+                                            <select class="form-control" id="clase" name="clase" [(ngModel)]="Red.clase" required>
+                                                <option value="github">Github</option>
+                                                <option value="twitter">Twitter</option>
+                                                <option value="instagram">Instagram</option>
+                                                <option value="facebook">Facebook</option>
+                                                <option value="pinterest">Pinterest</option>
+                                                <option value="globe-americas">Web</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="link" class="form-label">Link</label>
+                                            <input type="text" id="link" name="link" class="form-control" [(ngModel)]="Red.link" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-success my-2 py-2 submit-btn">Editar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </li>
             <li>
                 <!-- Button trigger modal -->
