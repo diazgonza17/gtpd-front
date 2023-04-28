@@ -90,25 +90,10 @@ export class EducacionComponent {
 
 
 
-  onCloseEdit(event: MouseEvent): void {
+  onCloseEdit(): void {
     const message = "Are you sure? All changes will be lost.";
     const result = window.confirm(message);
-    if(result && this.isEditing) {
-      const button = event.target as HTMLButtonElement;
-      const grandpa = button.closest(".h3-div") as HTMLElement;
-      const content = grandpa.querySelector(".content") as HTMLElement;
-      const editcontent = grandpa.querySelector(".edit-content") as HTMLElement;
-      const buttons = grandpa.querySelector(".edit-delete-icons") as HTMLElement;
-      content.style.display = 'block';
-      editcontent.style.display = 'none';
-      buttons.style.display = 'block';
-      this.isEditing = false;
-
-      content.querySelector(".nombreEdu").textContent = 'Please wait...';
-      content.querySelector(".descripcionEdu").textContent = 'If this doesn\'t change, reload the site';
-      content.querySelector(".fechasEdu").textContent = '';
-      window.location.reload();
-    }
+    window.location.reload();
   }
 
   onUpdate(id?: number): void {

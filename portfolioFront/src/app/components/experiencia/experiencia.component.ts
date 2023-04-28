@@ -84,31 +84,16 @@ export class ExperienciaComponent {
     const buttons = grandpa.querySelector(".edit-delete-icons") as HTMLElement;
     if(!this.isEditing){
       content.style.display = 'none';
-      editcontent.style.display = 'block';
       buttons.style.display = 'none';
+      editcontent.style.display = 'block';
       this.isEditing = true;
     }
   }
 
-  onCloseEdit(event: MouseEvent): void {
+  onCloseEdit(): void {
     const message = "Are you sure? All changes will be lost.";
     const result = window.confirm(message);
-    if(result && this.isEditing) {
-      const button = event.target as HTMLButtonElement;
-      const grandpa = button.closest(".h3-div") as HTMLElement;
-      const content = grandpa.querySelector(".content") as HTMLElement;
-      const editcontent = grandpa.querySelector(".edit-content") as HTMLElement;
-      const buttons = grandpa.querySelector(".edit-delete-icons") as HTMLElement;
-      content.style.display = 'block';
-      editcontent.style.display = 'none';
-      buttons.style.display = 'block';
-      this.isEditing = false;
-      
-      content.querySelector(".nombreExp").textContent = 'Please wait...';
-      content.querySelector(".descripcionExp").textContent = 'If this doesn\'t change, reload the site';
-      content.querySelector(".fechasExp").textContent = '';
-      window.location.reload();
-    }
+    window.location.reload();
   }
 
   onUpdate(id?: number): void {

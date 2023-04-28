@@ -1,17 +1,68 @@
 <div class="container border p-3 my-3">
     <div class="h2-div">
         <h2>Skills</h2>
-        <i class="bi bi-plus add-icon"></i>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn add-btn" data-toggle="modal" data-target="#newSkiModal" *ngIf="isLogged">
+            <i class="bi bi-plus add-icon"></i>
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="newSkiModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Agregar Skill</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="newSkiForm" #f="ngForm" (ngSubmit)="onCreate()" novalidate>
+                            <div class="mb-3">
+                                <label for="nombreSki" class="form-label">Nombre</label>
+                                <input type="text" id="nombreSki" name="nombreSki" class="form-control" [(ngModel)]="nombreSki" required>
+                            </div>
+                            <div class="">
+                                <label for="score">Porciento</label>
+                                <span> {{score}}%</span>
+                                <input type="range" min="0" max="100" step="1" class="form-range" id="score" name="score" [(ngModel)]="score" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary my-2 py-2 submit-btn">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <ul>
-        <li *ngFor="let skill of skillsList" class="skill-item">
-            <h3>{{skill.name}}</h3>
-            <div class="edit-delete-icons">
-                <i class="bi bi-pencil-fill edit-icon"></i>
-                <i class="bi bi-trash3-fill delete-icon"></i>
+        <li *ngFor="let Skill of ski" class="skill-item">
+            <div class="h3-div">
+                <div class="edit-delete-icons">
+                    <button type="button" class="btn delete-btn" *ngIf="isLogged" (click)="delete(Skill.id)">
+                        <i class="bi bi-trash3-fill delete-icon"></i>
+                    </button>
+                    <button type="button" class="btn edit-btn" *ngIf="isLogged" (click)="onEdit($event)">
+                        <i class="bi bi-pencil-fill edit-icon"></i>
+                    </button>
+                </div>
+                <div class="content">
+                    <h3>{{Skill.nombreSki}}</h3>
+                </div>
+                <div class="edit-content" style="display:none">
+                    <form #f="ngForm" (ngSubmit)="onUpdate(Skill.id)" novalidate>
+                        <div class="form-group">
+                            <label for="nombreSki">Nombre</label>
+                            <input type="text" class="form-control" id="nombreSki" name="nombreSki" [(ngModel)]="Skill.nombreSki" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="score">Porciento</label>
+                            <span> {{Skill.score}}%</span>
+                            <input type="range" min="0" max="100" step="1" class="form-range" id="score" name="score" [(ngModel)]="Skill.score" required>
+                        </div>
+                        <button class="btn btn-success">Editar</button>
+                    </form>
+                    <button class="btn btn-secondary" (click)="onCloseEdit()">Cerrar</button>
+                </div>
             </div>
             <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" [style.width.%]="skill.score"></div>
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" [style.width.%]="Skill.score"></div>
             </div>
         </li>
     </ul>
