@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PortfolioService } from 'src/app/services/portfolio.service';
+import { PersonaService } from 'src/app/services/persona.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,8 +7,9 @@ import { PortfolioService } from 'src/app/services/portfolio.service';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
+  /*
   contactData:any;
-  constructor(private datosPortfolio:PortfolioService) {
+  constructor(private datosPortfolio:PersonaService) {
   }
 
   ngOnInit(): void {
@@ -16,4 +17,5 @@ export class FooterComponent {
       this.contactData = data.contact;
     });
   }
+  */
 }

@@ -1,12 +1,15 @@
 Portfolio to do:
 
     Persona
+        - BACK: Add email field
         - Add IMGS to Back
-        - Persona Front:  Model / Service (Polish)
 
     About
-        - About Front:    Model / Service / TS
+        - import Persona and implement
         - use <textarea>
+
+    Footer
+        -import Persona and implement
 
 -----------------------------------------------------------------------------
 
