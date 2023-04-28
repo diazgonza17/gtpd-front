@@ -18,7 +18,7 @@ export class ExperienciaComponent {
     this.sExperiencia.all().subscribe(data => { this.exp = data });
   }
 
-  isLogged = false;
+  isLogged: boolean = false;
   yearList: number[] = [];
 
   ngOnInit(): void {

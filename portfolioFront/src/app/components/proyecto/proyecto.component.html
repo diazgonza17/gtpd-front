@@ -1,16 +1,76 @@
 <div class="container border p-3 my-3">
     <div class="h2-div">
         <h2>Proyectos</h2>
-        <i class="bi bi-plus add-icon"></i>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn add-btn" data-toggle="modal" data-target="#newProModal" *ngIf="isLogged">
+            <i class="bi bi-plus add-icon"></i>
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="newProModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Agregar Proyecto</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="newProForm" #f="ngForm" (ngSubmit)="onCreate()" novalidate> 
+                            <div class="mb-3">
+                                <label for="nombrePro" class="form-label">Nombre</label>
+                                <input type="text" id="nombrePro" name="nombrePro" class="form-control" [(ngModel)]="nombrePro" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="descripcionPro" class="form-label">Descripcion</label>
+                                <input type="text" id="descripcionPro" name="descripcionPro" class="form-control" [(ngModel)]="descripcionPro">
+                            </div>
+                            <div class="mb-3">
+                                <label for="link" class="form-label">Link</label>
+                                <input type="text" id="link" name="link" class="form-control" [(ngModel)]="link" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary my-2 py-2 submit-btn">Enviar</button>                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <ul>
-        <li *ngFor="let project of projectsList">
-            <h3><a [href]="project.href">{{project.name}}</a></h3>
-            <div class="edit-delete-icons">
-                <i class="bi bi-pencil-fill edit-icon"></i>
-                <i class="bi bi-trash3-fill delete-icon"></i>
+        <li *ngFor="let Proyecto of pro">
+            <br>
+            <!--<img>-->
+            <div class="h3-div">
+                <div class="edit-delete-icons">
+                    <button type="button" class="btn delete-btn" *ngIf="isLogged" (click)="delete(Proyecto.id)">
+                        <i class="bi bi-trash3-fill delete-icon"></i>
+                    </button>
+                    <button type="button" class="btn edit-btn" *ngIf="isLogged" (click)="onEdit($event)">
+                            <i class="bi bi-pencil-fill edit-icon"></i>
+                    </button>                    
+                </div>
+                <div class="content">
+                    <h3 class="nombrePro"><a [href]="Proyecto.link">{{Proyecto.nombrePro}}</a></h3>
+                    <br>
+                    <span class="descripcionPro">{{Proyecto.descripcionPro}}</span>  
+                </div>
+                <div class="edit-content" style="display:none">
+                    <form #f="ngForm" (ngSubmit)="onUpdate(Proyecto.id)" novalidate>
+                        <div class="form-group">
+                            <label for="nombrePro">Nombre</label>
+                            <input type="text" class="form-control" id="nombrePro" name="nombrePro" [(ngModel)]="Proyecto.nombrePro" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcionPro">Descripcion</label>
+                            <input type="text" class="form-control" id="descripcionPro" name="descripcionPro" [(ngModel)]="Proyecto.descripcionPro">
+                        </div>
+                        <div class="form-group">
+                            <label for="link">Link</label>
+                            <input type="text" class="form-control" id="link" name="link" [(ngModel)]="Proyecto.link">
+                        </div>
+                        <button class="btn btn-success">Editar</button>
+                    </form>
+                    <button class="btn btn-secondary" (click)="onCloseEdit()">Cerrar</button>
+                </div>
             </div>
-            <p>{{project.description}}</p>  
         </li>
     </ul>
  

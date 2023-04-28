@@ -10,13 +10,6 @@ Portfolio to do:
     About
         - About Front:    (Model / Service / TS)
         - use <textarea>
-    
-    Skill
-        - Skill Front:    (Model / Service / TS)
-    
-    Proyecto
-        - Add IMGS to Back    
-        - Proyecto Front:  (Model / Service / TS)
 
 -----------------------------------------------------------------------------
 
@@ -25,13 +18,18 @@ Portfolio to do:
         -- Añadir flechita para que se sepa que es un dropdown
         -- Spinner loader when submit
         -- si queres editar un elemento con "Actualidad", la checkbox deberia aparecer tildada
-        -- simplificar onCloseEdit a solo window.location.reload() 
-
 
     Educacion
         - Add IMGS to Back
         -- si queres editar un elemento con "Actualidad", la checkbox deberia aparecer tildada
-        -- simplificar onCloseEdit a solo window.location.reload() 
+
+    Skill
+        -
+
+    Proyecto
+        - Add IMGS to Back    
+
+-----------------------------------------------------------------------------
 
 ANTES DEL DEPLOY
     - Borrar usuario "user"

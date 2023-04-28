@@ -33,6 +33,7 @@
     </div>
     <ul>
         <li *ngFor="let Skill of ski" class="skill-item">
+            <br>
             <div class="h3-div">
                 <div class="edit-delete-icons">
                     <button type="button" class="btn delete-btn" *ngIf="isLogged" (click)="delete(Skill.id)">
@@ -61,6 +62,7 @@
                     <button class="btn btn-secondary" (click)="onCloseEdit()">Cerrar</button>
                 </div>
             </div>
+            <br>
             <div class="progress">
                 <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" [style.width.%]="Skill.score"></div>
             </div>

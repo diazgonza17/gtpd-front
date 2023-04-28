@@ -19,7 +19,7 @@ export class SkillComponent {
     this.sSkill.all().subscribe(data => {this.ski = data});
   }
 
-  isLogged = false;
+  isLogged: boolean = false;
 
   ngOnInit(): void {
     this.cargarSkill();

@@ -18,7 +18,7 @@ export class EducacionComponent {
     this.sEducacion.all().subscribe(data => { this.edu = data });
   }
   
-  isLogged = false;
+  isLogged: boolean = false;
   yearList: number[] = [];
 
   ngOnInit(): void {
