@@ -9,8 +9,7 @@ import { Persona } from '../models/persona';
 
 export class PersonaService {
   
-   persoURL = 'http://localhost:8080/perso/';
-
+  persoURL = 'http://localhost:8080/perso/';
 
   constructor(private httpClient:HttpClient) { }
 
