@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AboutComponent } from './components/about/about.component';
 import { EducacionComponent } from './components/educacion/educacion.component';
-import { SkillsComponent } from './components/skills/skills.component';
-import { ProjectsComponent } from './components/projects/projects.component';
+import { SkillComponent } from './components/skill/skill.component';
+import { ProyectoComponent } from './components/proyecto/proyecto.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -22,8 +22,8 @@ import { ExperienciaComponent } from './components/experiencia/experiencia.compo
     HeaderComponent,
     AboutComponent,
     EducacionComponent,
-    SkillsComponent,
-    ProjectsComponent,
+    SkillComponent,
+    ProyectoComponent,
     NavbarComponent,
     FooterComponent,
     PortfolioComponent,

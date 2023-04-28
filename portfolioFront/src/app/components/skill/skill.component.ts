@@ -4,12 +4,12 @@ import { SkillService } from 'src/app/services/skill.service';
 import { TokenService } from 'src/app/services/token.service';
 
 @Component({
-  selector: 'app-skills',
-  templateUrl: './skills.component.html',
-  styleUrls: ['./skills.component.css']
+  selector: 'app-skill',
+  templateUrl: './skill.component.html',
+  styleUrls: ['./skill.component.css']
 })
 
-export class SkillsComponent {
+export class SkillComponent {
 
   constructor(private sSkill: SkillService, private tokenService: TokenService) { }
   

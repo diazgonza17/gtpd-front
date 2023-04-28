@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { PortfolioService } from 'src/app/services/portfolio.service';
 
 @Component({
-  selector: 'app-projects',
-  templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css']
+  selector: 'app-proyecto',
+  templateUrl: './proyecto.component.html',
+  styleUrls: ['./proyecto.component.css']
 })
-export class ProjectsComponent {
+export class ProyectoComponent {
   projectsList:any;
   constructor(private datosPortfolio:PortfolioService) {
   }
