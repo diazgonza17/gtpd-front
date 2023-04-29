@@ -1,9 +1,5 @@
 Portfolio to do:
 
-    Persona
-        - BACK: Add email field
-        - Add IMGS to Back
-
     About
         - import Persona and implement
         - use <textarea>
@@ -12,6 +8,12 @@ Portfolio to do:
         -import Persona and implement
 
 -----------------------------------------------------------------------------
+
+    Navbar
+        - cambiar link por linkRed (Back y Front)
+
+    Persona
+        - Add IMGS to Back
 
     Experiencia
         - Add IMGS to Back
@@ -29,9 +31,6 @@ Portfolio to do:
     Proyecto
         - Add IMGS to Back    
         - cambiar link por linkPro (Back y Front)
-
-    Navbar
-        - cambiar link por linkRed (Back y Front)
 
 -----------------------------------------------------------------------------
 

@@ -33,8 +33,6 @@ export class HeaderComponent {
   apellido: string = '';
   titulo: string = '';
   ubicacion: string = '';
-  about: string = '';
-  //email: string = '';
 
   isEditing: boolean = false;
 

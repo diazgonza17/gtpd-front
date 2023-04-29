@@ -1,7 +1,23 @@
 <div class="container border p-3 my-3">
-    <div class="h2-div">
-        <h2>Acerca de</h2>
-        <i class="bi bi-pencil-fill edit-icon"></i>
+    <div class="edit-delete-icons">
+        <button type="button" class="btn edit-btn" *ngIf="isLogged" (click)="onEdit($event)">
+            <i class="bi bi-pencil-fill edit-icon"></i>
+        </button>
     </div>
-    <!-- <p>{{aboutText}}</p> -->
+    <div class="content">
+        <div class="h2-div">
+            <h2>Acerca de</h2>
+        </div>
+        <p style="white-space: pre-wrap">{{perso.about}}</p>
+    </div>
+    <div class="edit-content" style="display:none">
+        <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
+            <div class="form-group">
+                <label for="about">Acerca de</label>
+                <textarea class="form-control" id="about" name="about" rows="5" [(ngModel)]="perso.about" required></textarea>
+            </div>
+            <button class="btn btn-success">Editar</button>
+        </form>
+        <button class="btn btn-secondary" (click)="onCloseEdit()">Cerrar</button>
+    </div>
 </div>
