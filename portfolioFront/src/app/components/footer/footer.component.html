@@ -1,5 +1,21 @@
 <div class="container-fluid bg-dark text-center text-white p-4">
-    <!--<span>Para más información, contáctese a {{contactData.email}}</span> <br>-->
-    <!--SAMPLE--><span>Para más información, contáctese a diazgonzalo1720@gmail.com</span> <br> 
-    <a href="https://www.freepik.com/free-photo/3d-render-low-poly-plexus-design-network-communications_17560612.htm#query=tech&position=6&from_view=search&track=sph">Image by kjpargeter</a> on Freepik
+    <div class="edit-delete-icons">
+        <button type="button" class="btn edit-btn" *ngIf="isLogged" (click)="onEdit($event)">
+            <i class="bi bi-pencil-fill edit-icon text-white"></i>
+        </button>        
+    </div>
+    <div class="content">
+        <span>Para más información, contáctese a {{perso.email}}</span> <br> 
+        <a href="https://www.freepik.com/free-photo/3d-render-low-poly-plexus-design-network-communications_17560612.htm#query=tech&position=6&from_view=search&track=sph">Image by kjpargeter</a> on Freepik
+    </div>
+    <div class="edit-content" style="display: none">
+        <form #f="ngForm" (ngSubmit)="onUpdate()" novalidate>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" name="email" [(ngModel)]="perso.email" required>
+            </div>
+            <button class="btn btn-success">Editar</button>
+        </form>        
+        <button class="btn btn-secondary" (click)="onCloseEdit()">Cerrar</button>
+    </div>
 </div>
