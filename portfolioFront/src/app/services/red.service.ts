@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
 import { Red } from '../models/red';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RedService {
-  redURL = "http://localhost:8080/red/"
+  redURL = environment.apiURL+"red/"
 
   constructor(private httpClient: HttpClient) { }
 

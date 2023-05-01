@@ -10,6 +10,7 @@ Portfolio to do:
 -----------------------------------------------------------------------------
 
     Navbar
+        - añadir logo INTI y secretaria como en la pag de YoProgramo
         - cambiar link por linkRed (Back y Front)
 
     Persona
@@ -35,7 +36,26 @@ Portfolio to do:
 -----------------------------------------------------------------------------
 
 ANTES DEL DEPLOY
+    - Gihub borrar comits con contraseñas
+    - Resubir Postman Request (Local y Deploy) borrar contraseñas
     - Borrar usuario "user"
+    - Añadir persona mediante mySQL
 
 EXTRAS
     - Poder Ordenar Elementos
+
+
+
+
+DEPLOY STEP BY STEP
+    - borrar tablas en localhost
+    - cambiar application properties para localhost
+    - run file
+    - copiar logs de creacion de tablas
+    - crear nuevo addon
+    - añado tablas en phpmyadmin con los logs copiados
+    - cambiar application.properties para nuevo addon
+    - cleanear y buildear
+    - pushear 
+    - deploy
+

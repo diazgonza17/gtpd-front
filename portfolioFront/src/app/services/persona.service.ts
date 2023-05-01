@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
 import { Persona } from '../models/persona';
 
 @Injectable({
@@ -9,7 +10,7 @@ import { Persona } from '../models/persona';
 
 export class PersonaService {
   
-  persoURL = 'http://localhost:8080/perso/';
+  persoURL = environment.apiURL+'perso/';
 
   constructor(private httpClient:HttpClient) { }
 
