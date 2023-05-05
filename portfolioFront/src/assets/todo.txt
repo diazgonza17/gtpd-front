@@ -12,6 +12,7 @@ Portfolio to do:
     Navbar
         - añadir logo INTI y secretaria como en la pag de YoProgramo
         - cambiar link por linkRed (Back y Front)
+        - usar text-transform:capitalize para el nombre de la clase
 
     Persona
         - Add IMGS to Back
